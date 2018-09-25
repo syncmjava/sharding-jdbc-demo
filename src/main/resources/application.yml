@@ -1,0 +1,25 @@
+spring:
+  application:
+      name: spring-boot-demo
+  profiles:
+    active: sharding     # 本地开发环境
+#    active: dev       # 开发环境
+#    active: test      # Docker 环境里的纯测试环境
+#    active: pre       # 预发环境
+#    active: online    # 生产环境
+
+
+
+logging:
+  config: classpath:logback.xml
+  path: /logs/spring-boot-demo/demo.log
+  level: info
+
+server:
+  port: 28001
+
+##mybatis
+mybatis:
+  mapper-locations: classpath*:mybatis/mappers/**/*.xml
+  type-aliases-package: com.demo.sharding.entity
+  config-location: classpath:mybatis/mybatis-config.xml
