@@ -8,10 +8,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(value = "com.demo.sharding")
 @SpringBootApplication
-public class WebApplication {
+public class DemoWebApplication {
 
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(WebApplication.class, args);
+        ApplicationContext context = SpringApplication.run(DemoWebApplication.class, args);
         context.getBean("demoService", DemoService.class).demo();
     }
 }
