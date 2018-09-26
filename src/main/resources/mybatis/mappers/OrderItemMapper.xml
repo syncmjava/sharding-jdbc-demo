@@ -28,4 +28,13 @@
         WHERE
         o.order_id = i.order_id
     </select>
+
+     <select id="selectCnt" resultType="int">
+        SELECT
+        count(1)
+        FROM
+        t_order o, t_order_item i
+        WHERE
+        o.order_id = i.order_id
+    </select>
 </mapper>

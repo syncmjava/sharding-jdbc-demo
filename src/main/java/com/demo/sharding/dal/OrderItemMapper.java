@@ -11,4 +11,6 @@ public interface OrderItemMapper {
     Long insert(OrderItem model);
 
     List<OrderItem> selectAll();
+    
+    int selectCnt();
 }

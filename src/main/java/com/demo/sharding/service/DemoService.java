@@ -22,13 +22,17 @@ public class DemoService {
     private OrderItemMapper orderItemMapper;
 
     public void demo() {
+    	
+    	
         List<Long> orderIds = new ArrayList<>(10);
         log.info("1.Insert--------------");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
             Order order = new Order();
+            String status = i > 5?"JP":"CN";
+            
             order.setOrderId(Integer.valueOf(i).longValue());
             order.setUserId(51);
-            order.setStatus("INSERT_TEST");
+            order.setStatus(status);
             orderMapper.insert(order);
             long orderId = order.getOrderId();
             orderIds.add(orderId);
@@ -37,9 +41,13 @@ public class DemoService {
             item.setOrderItemId(Integer.valueOf(i).longValue());
             item.setOrderId(orderId);
             item.setUserId(51);
-            item.setStatus("INSERT_TEST");
+            item.setStatus(status);
             orderItemMapper.insert(item);
         }
         log.info("The order list : {}!", orderItemMapper.selectAll());
+
+        log.info(">===================<");
+
+        log.info("The order item count : {}!", orderItemMapper.selectCnt());
     }
 }
